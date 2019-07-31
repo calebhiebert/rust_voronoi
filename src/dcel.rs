@@ -156,8 +156,10 @@ pub struct HalfEdge {
     pub twin: usize, // index of halfedge
     /// The index of the next halfedge
     pub next: usize, // index of halfedge
+    /// index of face
     pub face: usize, // index of face
     prev: usize, // index of halfedge
+    /// is alive
     pub alive: bool,
 }
 
@@ -178,7 +180,10 @@ impl HalfEdge {
 #[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
 /// A face of a DCEL
 pub struct Face {
+    /// index of halfedge
     pub outer_component: usize, // index of halfedge
+
+    /// is alive
     pub alive: bool,
 }
 
