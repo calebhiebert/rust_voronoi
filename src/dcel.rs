@@ -132,6 +132,7 @@ impl fmt::Debug for DCEL {
 
 /// A vertex of a DCEL
 #[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
+#[derive(Copy, Clone)]
 pub struct Vertex {
     /// (x, y) coordinates
     pub coordinates: Point,
@@ -149,6 +150,7 @@ impl fmt::Debug for Vertex {
 
 /// A halfedge of a DCEL
 #[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
+#[derive(Copy, Clone)]
 pub struct HalfEdge {
     /// The index of the vertex at the start of the halfedge
     pub origin: usize, // index of vertex
@@ -176,7 +178,7 @@ impl HalfEdge {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Copy, Clone)]
 #[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
 /// A face of a DCEL
 pub struct Face {
